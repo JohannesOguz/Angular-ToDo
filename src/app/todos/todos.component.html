@@ -1,0 +1,14 @@
+<h2>Todo-lista</h2>
+
+<input [(ngModel)]="newTodo" placeholder="Ny todo" />
+<button (click)="addTodo()">Lägg till</button>
+
+<ul>
+  <li *ngFor="let todo of todos">
+    <input type="checkbox" [checked]="todo.done" (change)="toggleDone(todo)" />
+    <span [style.textDecoration]="todo.done ? 'line-through' : 'none'">
+      {{ todo.text }}
+    </span>
+    <button (click)="deleteTodo(todo)">Ta bort</button>
+  </li>
+</ul>
